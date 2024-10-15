@@ -1,9 +1,27 @@
-const express= require('express');
+const express = require('express');
+const app = express();
+const dotenv = require('dotenv');
+dotenv.config({path: './process.env'});
+const sequelize = require('./database');
+const compoundRoutes = require('./route/compound.routes');
 
-const app=express();
+app.use(express.json());
 
-const port=5000;
+app.use('/api/compounds', compoundRoutes);
 
-app.listen(3000,()=>{
-    console.log(`Server running on port ${port}`)
+const PORT = process.env.PORT || 3000;
+
+const db_connect = ()=>{
+    try{
+        sequelize.sync().then(
+            console.log('Connected to MySQL Database')
+        )
+    } catch(err) {
+        console.log(err);
+    }
+}
+
+app.listen(PORT,()=>{
+    db_connect();
+    console.log(`Server running on port ${PORT}`)
 })
