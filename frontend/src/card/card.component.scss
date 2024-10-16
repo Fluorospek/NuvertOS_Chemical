@@ -1,0 +1,29 @@
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  width: 300px;
+  cursor: pointer;
+  // height: 191px;
+}
+
+.card {
+  background-color: #FEFAE0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  width: 300px;
+}
+
+.card img {
+  max-width: 100%;
+  height: fit-content;
+  border-radius: 4px;
+}
+
+.card h3 {
+  margin-top: 12px;
+  font-size: 1.2em;
+}

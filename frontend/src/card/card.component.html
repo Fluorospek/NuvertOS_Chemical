@@ -1,0 +1,13 @@
+<div class="card-container">
+  <mat-card class="card">
+      <img
+      *ngIf="compound?.strImageSource"
+      mat-card-image
+      [src]="compound.strImageSource"
+      [alt]="compound.compoundName"
+    />
+    <mat-card-header>
+      <mat-card-title>{{ compound.compoundName }}</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+</div>

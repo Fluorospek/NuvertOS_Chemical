@@ -1,0 +1,24 @@
+<mat-toolbar class="navbar">
+  <span>Chemical Compounds</span>
+</mat-toolbar>
+
+<div class="card-wrapper">
+  <div *ngFor="let data of rows | slice : currPage * rowPerPage : (currPage + 1) * rowPerPage">
+    <app-card [routerLink]="['detail', data.id]" [compound]="data"></app-card>  <!--this is one card -->
+  </div>
+</div>
+
+<div class="pagination">
+  <button
+    [disabled]="currPage === 0"
+    (click)="currPage = currPage - 1"
+  >
+    Previous
+  </button>
+  <button
+    [disabled]="currPage === totalPages"
+    (click)="currPage = currPage + 1"
+  >
+    Next
+  </button>
+</div>

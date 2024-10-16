@@ -1,0 +1,25 @@
+<div class="detail">
+  <div>
+    <img *ngIf="chemical?.strImageSource" [src]="chemical.strImageSource" />
+  </div>
+
+<div class="right-div">
+  <h1>{{ chemical.compoundName }}</h1>
+    <div class="description">
+      <h3>Description</h3>
+      <div>{{ chemical.compoundDesc }}</div>
+      <br>
+      <a
+        *ngIf="chemical?.strImageAttribution"
+        [href]="chemical.strImageAttribution"
+        >More Information</a
+      >
+    </div>
+    <div class="btns">
+      <button (click)="deleteChemical()">DELETE</button>
+      <button (click)="updateChemical()">UPDATE</button>
+    </div>
+</div>
+    
+    
+</div>

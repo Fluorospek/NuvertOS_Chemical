@@ -26,15 +26,15 @@ exports.getCompoundById = async (req, res) => {
 exports.updateCompound = async (req, res) => {
     try {
         const { id } = req.params;
-        const { name, description } = req.body;
+        const { compoundName, compoundDesc } = req.body;
         const compound = await Compound.findByPk(id);
         if(!compound){
             return res.status(404).json({ error: 'Compound not found' });
         }
-        if(name)
-            compound.compoundName = name;
-        if(description)
-            compound.compoundDesc = description;
+        if(compoundName)
+            compound.compoundName = compoundName;
+        if(compoundDesc)
+            compound.compoundDesc = compoundDesc;
         await compound.save();
         return res.json(compound);
     } catch (error) {
